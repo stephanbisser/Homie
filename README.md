@@ -26,3 +26,8 @@ After your bot has been created you can instantly test it when going to your bot
 Now we will need to adapt our bot's code to make it smarter. Therefore, the Azure portal offers a pretty nice feature as you can edit your code with the code editor built right into the portal. So head over to "Build" and the choose "Open online code editor".
 
 <img src="images/bot_creation4.png"/>
+
+Now that you opened up the App Service Editor you can select your app.js file and start developing your bot's app logic.
+
+<img src="images/bot_creation5.png"/>
+
