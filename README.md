@@ -31,3 +31,4 @@ Now that you opened up the App Service Editor you can select your app.js file an
 
 <img src="images/bot_creation5.png"/>
 
+But before we can do that, we need to setup our other services like LUIS or our Azure IoT Hub before we can edit our code...
