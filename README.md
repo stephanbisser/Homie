@@ -19,7 +19,7 @@ Now we need to fill out some basic properties to give the bot a name and chosse 
 
 <img src="images/bot_creation2.png"/>
 
-After your bot has been created you can instantly test it when going to your bot within the Azure portal and select "Test in Web Chat" where you can type in a message to see if your bot is working.
+After your bot has been created you can instantly test it when going to your bot within the Azure portal and select "Test in Web Chat" where you can type in a message to see if your bot is working. Btw you see that your bot already recognizes some basic intents like greetings as these are built in intents into your newly created LUIS app which we'll see later on.
 
 <img src="images/bot_creation3.png"/>
 
