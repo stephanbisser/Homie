@@ -8,3 +8,6 @@ If you want to know more about Homie's story then please take a look at http://w
 ## Solution overview
 
 <img src="images/homie_overview2.0.png" />
+
+### Azure Bot Service
+First of all we need to create an Azure Bot service, which is responsible for communicating with the user. So head over to the Azure portal and create a new bot.
