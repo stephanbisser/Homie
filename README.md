@@ -16,4 +16,5 @@ In the Azure portal click on "+" and search for bot service. You can either go w
 <img src="images/bot_creation01.png" />
 
 Now we need to fill out some basic properties to give the bot a name and chosse the location as well as a pricing tier (F0 should be sufficient for developing and testing as you can upgrade when you want to deploy the bot later on). For the Bot template make sure to choose "Node.js" and then "Language understanding" as this brings a lot of preconfigured attributes within our bot solution as well as predefined code snippets which allow us to get started with the LUIS Cognitive Services API quicker.
+
 <img src="images/bot_creation02.png" />
