@@ -10,7 +10,7 @@ If you want to know more about Homie's story then please take a look at http://w
 <img src="images/homie_overview2.0.png" />
 </p>
 
-### Azure Bot Service
+### Azure Bot Creation
 First of all we need to create an Azure Bot service, which is responsible for communicating with the user. So head over to the Azure portal (https://portal.azure.com) and create a new bot.
 
 In the Azure portal click on "+" and search for bot service. You can either go with a "Web App Bot" or with a "Functions Bot". In this tutorial we will use a Web App bot as this is a great way to provide a stable bot platform without the need of dealing with backend services and other stuff so you will be able to develop and deploy your bot faster.
@@ -42,6 +42,14 @@ Now that you opened up the App Service Editor you can select your app.js file an
 <p align="center"> 
 <img src="images/bot_creation5.png"/>
 </p>
+
+We can already add some of our Node modules and install the dependencies here, just click on "Open console" in your App Service Editor and install the following three Node modules as we need them later on in our code:
+
+```{r, engine='bash'}
+npm install azure-storage
+npm install azure-iothub
+npm install azure-iot-common
+```
 
 But before we can do that, we need to setup our other services like LUIS or our Azure IoT Hub before we can edit our code...
 
