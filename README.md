@@ -300,5 +300,5 @@ No when you run the Node.JS file on your PI and type in the message **"Turn the 
 And the bot should send you the following message back in your emulator:
 
 <p align="center"> 
-<img src="images/raspberry_setup6.png"/>
+<img src="images/bot_creation6.png"/>
 </p>
