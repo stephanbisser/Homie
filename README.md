@@ -77,5 +77,8 @@ So in my case I have bought the following 2 pieces from Amazon (you can find the
 <img src="images/raspberry_setup1.png"/>
 </p>
 
-Vilros Rasperry Pi Ultimate Starter Kit 3 - https://www.amazon.de/gp/product/B01CYQJP9O/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1
-kwmobile 8x32 LED Matrix Module for Raspberry Pi and Arduino - https://www.amazon.de/gp/product/B06XJ9ZX17/ref=oh_aui_detailpage_o03_s00?ie=UTF8&psc=1
+**Vilros Rasperry Pi Ultimate Starter Kit 3**
+https://www.amazon.de/gp/product/B01CYQJP9O/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1
+
+**kwmobile 8x32 LED Matrix Module for Raspberry Pi and Arduino**
+https://www.amazon.de/gp/product/B06XJ9ZX17/ref=oh_aui_detailpage_o03_s00?ie=UTF8&psc=1
