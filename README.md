@@ -92,3 +92,5 @@ GND | Ground | 6 | GND
 DIN | Data In | 19 | GPIO 10 (MOSI)
 CS | Chip Select | 24 | GPIO 8 (SPI CS0)
 CLK | Clock | 23 | GPIO 11 (SPI CLK)
+
+Thanks to https://tutorials-raspberrypi.de/led-dot-matrix-zusammenbau-und-installation/ for this GPIO pinout description!
