@@ -85,7 +85,6 @@ https://www.amazon.de/gp/product/B06XJ9ZX17/ref=oh_aui_detailpage_o03_s00?ie=UTF
 
 So now when you get your Pi which you orderd you should already have the Raspbian image pre-installed on your SD card so you are good to go to start setting it up. I won't go into detail on how to prepare your Pi here as there are lots of blog posts which describe how to setup wifi and other related stuff (e.g.: https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md). When you have setup your device we need to first of all connect our device with the LED matrix. So plugin the led matrix cable into your Pi's GPIO pinout as follows:
 
-<p align="center"> 
 Name | Remarks | Raspberry Pi GPIO Pin | Function
 ------------ | ------------- | ------------- | -------------
 VCC | +5V Power | 2 | 5V0
@@ -93,5 +92,5 @@ GND | Ground | 6 | GND
 DIN | Data In | 19 | GPIO 10 (MOSI)
 CS | Chip Select | 24 | GPIO 8 (SPI CS0)
 CLK | Clock | 23 | GPIO 11 (SPI CLK)
-</p>
-Thanks to https://tutorials-raspberrypi.de/led-dot-matrix-zusammenbau-und-installation/ for this GPIO pinout description!
+
+Thanks to https://tutorials-raspberrypi.de/led-dot-matrix-zusammenbau-und-installation/ for this GPIO pinout description.
