@@ -83,5 +83,5 @@ https://www.amazon.de/gp/product/B01CYQJP9O/ref=oh_aui_detailpage_o01_s00?ie=UTF
 **kwmobile 8x32 LED Matrix Module for Raspberry Pi and Arduino**
 https://www.amazon.de/gp/product/B06XJ9ZX17/ref=oh_aui_detailpage_o03_s00?ie=UTF8&psc=1
 
-So now when you get your Pi which you orderd you should already have the Raspbian image pre-installed on your SD card so you are good to go to start setting it up. I won't go into detail on how to prepare your Pi here as there are lots of blog posts which describe how to setup wifi and other related stuff (e.g.: https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md). When you have setup your device we need to first of all connect our device with the LED matrix. So plugin the led matrix cable into your Pi as follows:
+So now when you get your Pi which you orderd you should already have the Raspbian image pre-installed on your SD card so you are good to go to start setting it up. I won't go into detail on how to prepare your Pi here as there are lots of blog posts which describe how to setup wifi and other related stuff (e.g.: https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md). When you have setup your device we need to first of all connect our device with the LED matrix. So plugin the led matrix cable into your Pi's GPIO pinout as follows:
 
