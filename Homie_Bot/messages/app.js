@@ -72,7 +72,7 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
         if (roomEntity){
             session.send("Ok, I will turn the %s on in the %s", deviceEntity['entity'], roomEntity['entity']);
             session.endDialog();
-			if (deviceEntity == "lights" && roomEntity == "office"){
+			if (deviceEntity['entity'] == "lights" && roomEntity['entity'] == "office"){
 				var myCommand = "lightsOnOffice";
 				var message = new Message(myCommand);
 				message.ack = 'full';
