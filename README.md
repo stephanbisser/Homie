@@ -37,4 +37,10 @@ Let's start with the Cognitive Services API LUIS which is responsible for enabli
 
 <img src="images/luis_creation1.png"/>
 
+Now the bot is able to detect the sentiment for turning on or off the lights or other devices in our smart home. Now we need to create the next Azure service for enabling device to cloud communication...
+
+### Azure IoT Hub
+Now head back to the Azure portal and create a new service the IoT Hub with the following attributes (Note: you can go with the F1 pricing tier for testing but you should choose at least S1 for production as you cannot switch between the free and paid tiers later on):
+
+<img src="images/iothub_creation1.png"/>
 
