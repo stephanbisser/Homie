@@ -67,3 +67,6 @@ After the IoT Hub has been provisioned you need to add your devices to it. Go to
 <img src="images/iothub_creation2.png"/>
 </p>
 
+Now as we have set up all our Azure services we need to go down to our devices to make them IoT enabled...
+
+### Raspberry PI 3
