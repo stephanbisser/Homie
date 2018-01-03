@@ -97,7 +97,7 @@ Thanks to https://tutorials-raspberrypi.de/led-dot-matrix-zusammenbau-und-instal
 
 Now it's time for us to actually write some code on the Pi which allows us to connect the Pi with our IoT Hub and exchange messages with it. So take the following Node.JS code and create a new .js file on your Pi (I have created a "Homie-Device01.js" file as this is easy to remember the names when you have multiple devices or usecases):
 
-```{r, engine='javascript', count_lines}
+```javascript
 'use strict';
 
 var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
