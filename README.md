@@ -52,6 +52,8 @@ Let's start with the Cognitive Services API LUIS which is responsible for enabli
 <img src="images/luis_creation1.png"/>
 </p>
 
+Now we need to train our LUIS app and publish it right from the LUIS portal (you might need to add a key here - choose your Azure subscription and the corresponding key. If you have no keys available go back to the Azure portal and create a new Cognitive Service API of type LUIS as instructed here: https://docs.microsoft.com/en-us/azure/cognitive-services/luis/azureibizasubscription).
+
 Now the bot is able to detect the sentiment for turning on or off the lights or other devices in our smart home. Now we need to create the next Azure service for enabling device to cloud communication...
 
 ### Azure IoT Hub
