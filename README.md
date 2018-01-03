@@ -70,3 +70,12 @@ After the IoT Hub has been provisioned you need to add your devices to it. Go to
 Now as we have set up all our Azure services we need to go down to our devices to make them IoT enabled...
 
 ### Raspberry PI 3
+
+So in my case I have bought the following 2 pieces from Amazon (you can find the links below) as these are pretty cheap and have everything we need to setup the desired solution. Note: I have not implemented a real light bulb in this scenario as this is not that handy for demo cases but you are good to go to connect an IoT enabled light bulb to your Pi to turn that on and off as well (should not be too much of a code change on the Pi).
+
+<p align="center"> 
+<img src="images/raspberry_setup1.png"/>
+</p>
+
+Vilros Rasperry Pi Ultimate Starter Kit 3 - https://www.amazon.de/gp/product/B01CYQJP9O/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1
+kwmobile 8x32 LED Matrix Module for Raspberry Pi and Arduino - https://www.amazon.de/gp/product/B06XJ9ZX17/ref=oh_aui_detailpage_o03_s00?ie=UTF8&psc=1
