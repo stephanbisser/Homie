@@ -83,7 +83,7 @@ https://www.amazon.de/gp/product/B01CYQJP9O/ref=oh_aui_detailpage_o01_s00?ie=UTF
 **kwmobile 8x32 LED Matrix Module for Raspberry Pi and Arduino**
 https://www.amazon.de/gp/product/B06XJ9ZX17/ref=oh_aui_detailpage_o03_s00?ie=UTF8&psc=1
 
-So now when you get your Pi which you orderd you should already have the Raspbian image pre-installed on your SD card so you are good to go to start setting it up. I won't go into detail on how to prepare your Pi here as there are lots of blog posts which describe how to setup wifi and other related stuff (e.g.: https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md). When you have setup your device we need to first of all connect our device with the LED matrix. So plugin the led matrix cable into your Pi's GPIO pinout as follows:
+So now when you get your Pi which you orderd you should already have the Raspbian image pre-installed on your SD card so you are good to go to start setting it up. I won't go into detail on how to prepare your Pi here as there are lots of blog posts which describe how to setup wifi and other related stuff like Node.Js which should usually be installed already (follow e.g.: https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md for instructions with the wifi setup). When you have setup your device we need to first of all connect our device with the LED matrix. So plugin the led matrix cable into your Pi's GPIO pinout as follows:
 
 Name | Remarks | Raspberry Pi GPIO Pin | Function
 ------------ | ------------- | ------------- | -------------
@@ -94,3 +94,88 @@ CS | Chip Select | 24 | GPIO 8 (SPI CS0)
 CLK | Clock | 23 | GPIO 11 (SPI CLK)
 
 Thanks to https://tutorials-raspberrypi.de/led-dot-matrix-zusammenbau-und-installation/ for this GPIO pinout description.
+
+Now it's time for us to actually write some code on the Pi which allows us to connect the Pi with our IoT Hub and exchange messages with it. So take the following Node.JS code and create a new .js file on your Pi (I have created a "Homie-Device01.js" file as this is easy to remember the names when you have multiple devices or usecases):
+
+```javascript
+'use strict';
+
+var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
+var Message = require('azure-iot-device').Message;
+var connectionString = [INSERT YOUR IOT HUB CONNECTION STRING HERE];
+var client = clientFromConnectionString(connectionString);
+
+var max7219LedMatrix = require('node-max7219-led-matrix');
+var max7219 = new max7219LedMatrix.max7219("/dev/spidev0.0");
+
+// GPIO pin of the led
+var configPin = 7;
+// Blinking interval in usec
+var configTimeout = 1000;
+
+var isLedOn = 0;
+
+function printResultFor(op) {
+  return function printResult(err, res) {
+    if (err) console.log(op + ' error: ' + err.toString());
+  };
+}
+
+var connectCallback = function (err) {
+  if (err) {
+    console.log('Could not connect: ' + err);
+  } else {
+    console.log('Client connected');
+    client.on('message', function (msg) {
+        if(msg.data == "lightsOnOffice"){
+			isLedOn = +!isLedOn;
+			max7219.showMessage('O');
+			max7219.clear();
+			console.log('\x1b[33m%s\x1b[0m', msg.data + " - turning the lights on in the office...");
+        } else if(msg.data == "lightsOffOffice"){
+			isLedOn = 0;
+			max7219.showMessage(' ');
+			max7219.clear();
+			max7219.showMessage(' ');
+			max7219.clear();           
+			console.log('\x1b[31m%s\x1b[0m', msg.data + " - turning the lights off in the office...");
+        } else if(msg.data == "lightsOnLivingRoom"){
+			isLedOn = +!isLedOn;
+			max7219.showMessage('O');
+			max7219.clear();
+			console.log('\x1b[33m%s\x1b[0m', msg.data + " - turning the lights on in the living room...");
+        } else if(msg.data == "lightsOffLivingRoom"){
+			isLedOn = 0;
+			max7219.showMessage(' ');
+			max7219.clear();
+			max7219.showMessage(' ');
+			max7219.clear();
+			console.log('\x1b[31m%s\x1b[0m', msg.data + " - turning the lights off in the living room...");
+        }
+      client.complete(msg, printResultFor('completed'));
+    });
+  }
+};
+
+client.open(connectCallback);
+```
+
+**Note: Please add your IoT Hub connection string in the very beginning of the file to make it connect to the Iot Hub successfully**
+
+After you have saved the file we need to install our Node modules with the following command from a terminal window in the path where you created the Node.JS file:
+
+```
+npm install azure-iot-device-mqtt --save
+npm install azure-iot-device --save
+npm install node-max7219-led-matrix --save
+```
+
+Now it's time to test the connection between your device and Azure, so open up a terminal on your Pi and execute the following command
+
+``` sudo node [Path to your Node.JS file]/Homie-Device01.js ```
+
+If you have done everything correctly you should see this screen:
+
+<p align="center"> 
+<img src="images/raspberry_setup2.png"/>
+</p>
