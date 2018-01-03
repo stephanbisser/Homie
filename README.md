@@ -44,3 +44,6 @@ Now head back to the Azure portal and create a new service the IoT Hub with the 
 
 <img src="images/iothub_creation1.png"/>
 
+After the IoT Hub has been provisioned you need to add your devices to it. Go to "IoT Devices" and add the devices you want to communicate with. You only need to set the Device ID and make note of the keys and the connection string after creation as we will need that later on:
+
+<img src="images/iothub_creation2.png"/>
