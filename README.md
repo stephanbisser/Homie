@@ -97,7 +97,7 @@ Thanks to https://tutorials-raspberrypi.de/led-dot-matrix-zusammenbau-und-instal
 
 Now it's time for us to actually write some code on the Pi which allows us to connect the Pi with our IoT Hub and exchange messages with it. So take the following Node.JS code and create a new .js file on your Pi (I have created a "Homie-Device01.js" file as this is easy to remember the names when you have multiple devices or usecases):
 
-```javascript
+```javascript, count_lines
 'use strict';
 
 var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
@@ -164,7 +164,7 @@ client.open(connectCallback);
 
 After you have saved the file we need to install our Node modules with the following command from a terminal window in the path where you created the Node.JS file:
 
-```
+```{r, engine='bash'}
 npm install azure-iot-device-mqtt --save
 npm install azure-iot-device --save
 npm install node-max7219-led-matrix --save
@@ -172,7 +172,9 @@ npm install node-max7219-led-matrix --save
 
 Now it's time to test the connection between your device and Azure, so open up a terminal on your Pi and execute the following command
 
-``` sudo node [Path to your Node.JS file]/Homie-Device01.js ```
+```{r, engine='bash'}
+sudo node [Path to your Node.JS file]/Homie-Device01.js
+```
 
 If you have done everything correctly you should see this screen:
 
