@@ -31,3 +31,10 @@ Now that you opened up the App Service Editor you can select your app.js file an
 <img src="images/bot_creation5.png"/>
 
 But before we can do that, we need to setup our other services like LUIS or our Azure IoT Hub before we can edit our code...
+
+### LUIS
+Let's start with the Cognitive Services API LUIS which is responsible for enabling our bot to detect sentiments of the users' input messages. Browse to https://www.luis.ai/applications login and select the App which has the same name as your bot to start adding entities and intents. The good thing is that there is already a prebuilt domain for HomeAutomation available which can be added to our LUIS app which saves a lot of time and effort. So click on "Prebuilt Domains" and add the "HomeAutomation" domain to our app:
+
+<img src="images/luis_creation1.png"/>
+
+
