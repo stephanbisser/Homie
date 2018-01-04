@@ -292,7 +292,7 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 bot.dialog('/', intents);    
 ```
 
-**Note: We need to make sure we have set the connection string of the IoT device in our Application Settings of the bot**
+**Note: We need to make sure we have set the connection string of the IoT device in our Application Settings of the bot as we don't want to have global parameters or passwords in our bot's code**
 So head over to the Bot in the Azure portal go to Application Settings and insert your connection string as follows:
 
 <p align="center"> 
