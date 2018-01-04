@@ -15,7 +15,7 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
 // Setup IoT Stuff
 var Client = require('azure-iothub').Client;
 var Message = require('azure-iot-common').Message;
-var connectionString = [INSERT YOUR IOT HUB CONNECTION STRING HERE];
+var connectionString = process.env.device01connection;
 var targetDevice = 'Homie-Device01';
 var serviceClient = Client.fromConnectionString(connectionString);
   
