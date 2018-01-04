@@ -7,7 +7,7 @@ If you want to know more about Homie's story then please take a look at http://w
 ## Solution overview
 
 <p align="center"> 
-<img src="images/homie_overview2.0.png" />
+<img src="images/homie_2.0.png" />
 </p>
 
 ## Prerequisites
