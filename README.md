@@ -368,3 +368,10 @@ Now can also ask your bot **"Show all lighted up rooms"** the bot should answer 
 <p align="center"> 
 <img src="images/bot_creation8.png"/>
 </p>
+
+Now you're good to go to add your bot to your favourite [**channels**](https://docs.microsoft.com/en-us/bot-framework/bot-service-manage-channels) like Microsoft Teams, Skype, Slack or Facebook to make it available for your users to interact with the bot...
+
+<p align="center"> 
+<img src="images/bot_creation9.png"/>
+</p>
+
