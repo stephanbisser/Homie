@@ -19,12 +19,8 @@ You need at least an Azure subscription where you can deploy your services into 
 <img src="images/raspberry_setup1.png"/>
 </p>
 
-**Vilros Rasperry Pi Ultimate Starter Kit 3**
-https://www.amazon.de/gp/product/B01CYQJP9O/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1
-
-**kwmobile 8x32 LED Matrix Module for Raspberry Pi and Arduino**
-https://www.amazon.de/gp/product/B06XJ9ZX17/ref=oh_aui_detailpage_o03_s00?ie=UTF8&psc=1
-
+[Vilros Rasperry Pi Ultimate Starter Kit 3](https://www.amazon.de/gp/product/B01CYQJP9O/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1)
+[kwmobile 8x32 LED Matrix Module for Raspberry Pi and Arduino](https://www.amazon.de/gp/product/B06XJ9ZX17/ref=oh_aui_detailpage_o03_s00?ie=UTF8&psc=1)
 
 ### Azure Bot Creation
 First of all we need to create an Azure Bot service, which is responsible for communicating with the user. So head over to the Azure portal (https://portal.azure.com) and create a new bot.
