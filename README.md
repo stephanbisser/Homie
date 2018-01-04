@@ -150,7 +150,7 @@ CLK | Clock | 23 | GPIO 11 (SPI CLK)
 
 Thanks to https://tutorials-raspberrypi.de/led-dot-matrix-zusammenbau-und-installation/ for this GPIO pinout description.
 
-Now it's time for us to actually write some code on the Pi which allows us to connect the Pi with our IoT Hub and exchange messages with it. So take the following Node.JS code and create a new .js file on your Pi (I have created a "Homie-Device01.js" file as this is easy to remember the names when you have multiple devices or usecases):
+Now it's time for us to actually write some code on the Pi which allows us to connect the Pi with our IoT Hub and exchange messages with it. So take the following Node.JS code and create a new .js file on your Pi (I have created a [**Homie-Device01.js**](https://github.com/cloudguy-pro/Homie/blob/master/Raspberry_Pi/Homie-Device01.js) file as this is easy to remember the names when you have multiple devices or usecases):
 
 ```javascript
 'use strict';
