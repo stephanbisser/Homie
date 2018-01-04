@@ -213,7 +213,7 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
 // Setup IoT Stuff
 var Client = require('azure-iothub').Client;
 var Message = require('azure-iot-common').Message;
-var connectionString = [INSERT YOUR IOT HUB CONNECTION STRING HERE];
+var connectionString = process.env.device01connection;
 var targetDevice = 'Homie-Device01';
 var serviceClient = Client.fromConnectionString(connectionString);
   
@@ -292,7 +292,12 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
 bot.dialog('/', intents);    
 ```
 
-**Note: Make sure to insert your Iot Hub connection string and change the device name if you chose another name for your Iot device!**
+**Note: We need to make sure we have set the connection string of the IoT device in our Application Settings of the bot**
+So head over to the Bot in the Azure portal go to Application Settings and insert your connection string as follows:
+
+<p align="center"> 
+<img src="images/bot_creation7.png"/>
+</p>
 
 No when you run the Node.JS file on your PI and type in the message **"Turn the lights on in the office"** into your bot's emulator (just click on "Test in Web Chat" in the Azure portal on your bot's site) you should see the following on your device:
 
