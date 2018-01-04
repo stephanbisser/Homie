@@ -339,14 +339,32 @@ So head over to the Bot in the Azure portal go to Application Settings and inser
 <img src="images/bot_creation7.png"/>
 </p>
 
-No when you run the Node.JS file on your PI and type in the message **"Turn the lights on in the office"** into your bot's emulator (just click on "Test in Web Chat" in the Azure portal on your bot's site) you should see the following on your device:
+No when you run the Node.JS file on your PI your LED lights should look like this:
+
+<p align="center"> 
+<img src="images/lights_off.JPG"/>
+</p>
+
+Now when we type in the message **"Turn the lights on in the office"** into the bot's Web Chat (just click on "Test in Web Chat" in the Azure portal on your bot's site) you should see the following on your device's temrinal window:
 
 <p align="center"> 
 <img src="images/raspberry_setup3.png"/>
+</p>
+
+Amd your LED lights should look like this:
+
+<p align="center"> 
+<img src="images/lights_on.JPG"/>
 </p>
 
 And the bot should send you the following message back in your emulator:
 
 <p align="center"> 
 <img src="images/bot_creation6.png"/>
+</p>
+
+Now can also ask your bot **"Show all lighted up rooms"** the bot should answer this with the following:
+
+<p align="center"> 
+<img src="images/bot_creation8.png"/>
 </p>
