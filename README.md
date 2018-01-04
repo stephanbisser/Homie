@@ -10,6 +10,22 @@ If you want to know more about Homie's story then please take a look at http://w
 <img src="images/homie_overview2.0.png" />
 </p>
 
+## Prerequisites
+
+#### Azure Subscription
+You need at least an Azure subscription where you can deploy your services into (either the trial or a MSDN subscription or a PAYG)
+#### Raspberry Pi 3 Kit
+<p align="center"> 
+<img src="images/raspberry_setup1.png"/>
+</p>
+
+**Vilros Rasperry Pi Ultimate Starter Kit 3**
+https://www.amazon.de/gp/product/B01CYQJP9O/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1
+
+**kwmobile 8x32 LED Matrix Module for Raspberry Pi and Arduino**
+https://www.amazon.de/gp/product/B06XJ9ZX17/ref=oh_aui_detailpage_o03_s00?ie=UTF8&psc=1
+
+
 ### Azure Bot Creation
 First of all we need to create an Azure Bot service, which is responsible for communicating with the user. So head over to the Azure portal (https://portal.azure.com) and create a new bot.
 
@@ -81,19 +97,9 @@ Now as we have set up all our Azure services we need to go down to our devices t
 
 ### Raspberry PI 3
 
-So in my case I have bought the following 2 pieces from Amazon (you can find the links below) as these are pretty cheap and have everything we need to setup the desired solution. Note: I have not implemented a real light bulb in this scenario as this is not that handy for demo cases but you are good to go to connect an IoT enabled light bulb to your Pi to turn that on and off as well (should not be too much of a code change on the Pi).
+So in my case I have bought the 2 pieces from Amazon (listed in the prerequisites section) as these are pretty cheap and have everything we need to setup the desired solution. Note: I have not implemented a real light bulb in this scenario as this is not that handy for demo cases but you are good to go to connect an IoT enabled light bulb to your Pi to turn that on and off as well (should not be too much of a code change on the Pi).
 
-<p align="center"> 
-<img src="images/raspberry_setup1.png"/>
-</p>
-
-**Vilros Rasperry Pi Ultimate Starter Kit 3**
-https://www.amazon.de/gp/product/B01CYQJP9O/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1
-
-**kwmobile 8x32 LED Matrix Module for Raspberry Pi and Arduino**
-https://www.amazon.de/gp/product/B06XJ9ZX17/ref=oh_aui_detailpage_o03_s00?ie=UTF8&psc=1
-
-So now when you get your Pi which you orderd you should already have the Raspbian image pre-installed on your SD card so you are good to go to start setting it up. I won't go into detail on how to prepare your Pi here as there are lots of blog posts which describe how to setup wifi and other related stuff like Node.Js which should usually be installed already (follow e.g.: https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md for instructions with the wifi setup). When you have setup your device we need to first of all connect our device with the LED matrix. So plugin the led matrix cable into your Pi's GPIO pinout as follows:
+So now when you get your Pi which you ordered you should already have the Raspbian image pre-installed on your SD card so you are good to go to start setting it up. I won't go into detail on how to prepare your Pi here as there are lots of blog posts which describe how to setup wifi and other related stuff like Node.Js which should usually be installed already (follow e.g.: https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md for instructions with the wifi setup). When you have setup your device we need to first of all connect our device with the LED matrix. So plugin the led matrix cable into your Pi's GPIO pinout as follows:
 
 Name | Remarks | Raspberry Pi GPIO Pin | Function
 ------------ | ------------- | ------------- | -------------
