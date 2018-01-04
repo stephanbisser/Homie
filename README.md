@@ -77,6 +77,26 @@ Now we need to train our LUIS app and publish it right from the LUIS portal (you
 
 Now the bot is able to detect the sentiment for turning on or off the lights or other devices in our smart home. Now we need to create the next Azure service for enabling device to cloud communication...
 
+If you want to you can also add 2 more intents which can be used to check which rooms are lighted up or dark at the moment. Simply add the following two intents:
+
+**HomeAutomation.GetLightedUpRooms**
+Add the following 5 sentences to this intent and hit *Train* afterwards.
+1. where is the light on?
+2. where is the light on right now?
+3. in which rooms are the lights on at the moment?
+4. please show me all rooms where the light is on
+5. show all lighted up rooms
+
+**HomeAutomation.GetLightedOffRooms**
+Add the following 5 sentences to this intent and hit *Train* afterwards.
+1. where is the light off?
+2. where is the light off right now?
+3. show me all dark rooms
+4. in which rooms are the lights off ?
+5. show me all rooms where the light is off
+
+After you trained the app you need to publish it again and that's it.
+
 ### Azure IoT Hub
 Now head back to the Azure portal and create a new service the IoT Hub with the following attributes (Note: you can go with the F1 pricing tier for testing but you should choose at least S1 for production as you cannot switch between the free and paid tiers later on):
 
