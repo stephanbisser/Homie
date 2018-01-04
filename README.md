@@ -92,6 +92,28 @@ After the IoT Hub has been provisioned you need to add your devices to it. Go to
 
 Now as we have set up all our Azure services we need to go down to our devices to make them IoT enabled...
 
+### Azure Table Storage
+
+Now we can add our status table in form of an Azure Storage Table to our solution. As the bot service comes with a storage account we can use that and simply add another table in there. So find your resource group where you deployed your bot in and click on the storage account in there. The find the "Tables" menu entry and click on it to add a new table with the name **lightStatus** for example:
+
+<p align="center"> 
+<img src="images/storagetable_creation1.png"/>
+</p>
+
+Now as the table is created we need to add some columns to it by simply opening the table in the [**Azure Storage Explorer**](https://azure.microsoft.com/en-us/features/storage-explorer/) If you haven't installed the Storage Explorer already please download and install it as this is one common tool for Azure admins and devs. After opening the Storage Explorer you should see all your tables in there as well as our newly created **lightStatus Table**:
+
+<p align="center"> 
+<img src="images/storagetable_creation2.png"/>
+</p>
+
+Simply select the lightStatus table click on *Add* and add at least the following 2 rows (you can add as many rows with different room names as you want):
+
+<p align="center"> 
+<img src="images/storagetable_creation3.png"/>
+</p>
+
+Now we are good to go to develop our bot's app logic...
+
 ### Raspberry PI 3
 
 So in my case I have bought the 2 pieces from Amazon (listed in the prerequisites section) as these are pretty cheap and have everything we need to setup the desired solution. Note: I have not implemented a real light bulb in this scenario as this is not that handy for demo cases but you are good to go to connect an IoT enabled light bulb to your Pi to turn that on and off as well (should not be too much of a code change on the Pi).
