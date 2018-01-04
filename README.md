@@ -185,6 +185,7 @@ var connectCallback = function (err) {
         if(msg.data == "lightsOnOffice"){
 			isLedOn = +!isLedOn;
 			max7219.showMessage('O');
+			max7219.showMessage('O');
 			max7219.clear();
 			console.log('\x1b[33m%s\x1b[0m', msg.data + " - turning the lights on in the office...");
         } else if(msg.data == "lightsOffOffice"){
@@ -196,6 +197,7 @@ var connectCallback = function (err) {
 			console.log('\x1b[31m%s\x1b[0m', msg.data + " - turning the lights off in the office...");
         } else if(msg.data == "lightsOnLivingRoom"){
 			isLedOn = +!isLedOn;
+			max7219.showMessage('O');
 			max7219.showMessage('O');
 			max7219.clear();
 			console.log('\x1b[33m%s\x1b[0m', msg.data + " - turning the lights on in the living room...");
@@ -239,7 +241,9 @@ If you have done everything correctly you should see this screen:
 
 ### Azure Bot Development
 
-Now when everything is ready we can start adding some code to our bot. We actually need to replace the default code within the App Service Editor of the **app.js** file with the following code
+Now when everything is ready we can start adding some code to our bot. We actually need to replace the default code within the App Service Editor of the **app.js** file with the code from this file here: [**app.js**](https://github.com/cloudguy-pro/Homie/blob/master/Homie_Bot/app.js)
+
+The main part of this file is the intent recognition. As an example the following code recognizes the intent of a user who wants to turn the lights on and detects the correct room name in order to tell the IoT Hub to send a device command which should turn on the lights in the correct room then:
 
 ```javascript
 var restify = require('restify');
@@ -258,51 +262,14 @@ var Message = require('azure-iot-common').Message;
 var connectionString = process.env.device01connection;
 var targetDevice = 'Homie-Device01';
 var serviceClient = Client.fromConnectionString(connectionString);
-  
-// Create chat connector for communicating with the Bot Framework Service
-var connector = new builder.ChatConnector({
-    appId: process.env.MicrosoftAppId,
-    appPassword: process.env.MicrosoftAppPassword,
-    openIdMetadata: process.env.BotOpenIdMetadata 
-});
 
-// Listen for messages from users 
-server.post('/api/messages', connector.listen());
-
-/*----------------------------------------------------------------------------------------
-* Bot Storage: This is a great spot to register the private state storage for your bot. 
-* We provide adapters for Azure Table, CosmosDb, SQL Azure, or you can implement your own!
-* For samples and documentation, see: https://github.com/Microsoft/BotBuilder-Azure
-* ---------------------------------------------------------------------------------------- */
-
-var tableName = 'botdata';
-var azureTableClient = new botbuilder_azure.AzureTableClient(tableName, process.env['AzureWebJobsStorage']);
-var tableStorage = new botbuilder_azure.AzureBotStorage({ gzipData: false }, azureTableClient);
-
-// Create your bot with a function to receive messages from the user
-var bot = new builder.UniversalBot(connector);
-bot.set('storage', tableStorage);
-
-// Make sure you add code to validate these fields
-var luisAppId = process.env.LuisAppId;
-var luisAPIKey = process.env.LuisAPIKey;
-var luisAPIHostName = process.env.LuisAPIHostName || 'westus.api.cognitive.microsoft.com';
-
-const LuisModelUrl = 'https://' + luisAPIHostName + '/luis/v1/application?id=' + luisAppId + '&subscription-key=' + luisAPIKey;
+.
+.
+.
 
 // Main dialog with LUIS
 var recognizer = new builder.LuisRecognizer(LuisModelUrl);
 var intents = new builder.IntentDialog({ recognizers: [recognizer] })
-.matches('Greeting', (session) => {
-    session.send('You reached Greeting intent, you said \'%s\'.', session.message.text);
-})
-.matches('Help', (session) => {
-    session.send('You reached Help intent, you said \'%s\'.', session.message.text);
-})
-.matches('Cancel', (session) => {
-    session.send('You reached Cancel intent, you said \'%s\'.', session.message.text);
-})
-
 // Intent for turning on the lights
 .matches('HomeAutomation.TurnOn', (session, args) => {
     session.sendTyping();
@@ -310,28 +277,59 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
         var deviceEntity = builder.EntityRecognizer.findEntity(args.entities, 'HomeAutomation.Device');
         var roomEntity = builder.EntityRecognizer.findEntity(args.entities, 'HomeAutomation.Room');
         if (roomEntity){
+            console.log(roomEntity['entity']);
             session.send("Ok, I will turn the %s on in the %s", deviceEntity['entity'], roomEntity['entity']);
             session.endDialog();
-			if (deviceEntity == "lights" && roomEntity == "office"){
+			if (deviceEntity['entity'] == "lights" && roomEntity['entity'] == "office"){
 				var myCommand = "lightsOnOffice";
 				var message = new Message(myCommand);
 				message.ack = 'full';
 				message.messageId = "My Message ID";
 				console.log('Sending message: ' + message.getData());
 				serviceClient.send(targetDevice, message);
-			}
+                var entity = {
+                    PartitionKey : 'office',
+                    RowKey: '1',
+                    Room: 'Office',
+                    Status: 'On'
+                };
+                statusTableSvc.insertOrReplaceEntity('lightStatus', entity, function(error, result, response) {
+                    if (!error) {
+                        console.log("done writing to Azure Storage table");
+                    } else {
+                        console.log(error);
+                    }
+                });
+		} else if (deviceEntity['entity'] == "lights" && roomEntity['entity'] == "living room"){
+				var myCommand = "lightsOnLivingRoom";
+				var message = new Message(myCommand);
+				message.ack = 'full';
+				message.messageId = "My Message ID";
+				console.log('Sending message: ' + message.getData());
+				serviceClient.send(targetDevice, message);
+                
+			var entity = {
+			    PartitionKey : 'livingRoom',
+			    RowKey: '2',
+			    Room: 'Living Room',
+			    Status: 'On'
+			};
+			statusTableSvc.insertOrReplaceEntity('lightStatus', entity, function(error, result, response) {
+			    if (!error) {
+				console.log("done writing to Azure Storage table");
+			    } else {
+				console.log(error);
+			    }
+			});
+		}
         }
         
     }
 })
-/*
-.matches('<yourIntent>')... See details at http://docs.botframework.com/builder/node/guides/understanding-natural-language/
-*/
-.onDefault((session) => {
-    session.send('Sorry, I did not understand \'%s\'.', session.message.text);
-});
 
-bot.dialog('/', intents);    
+. 
+.
+.
 ```
 
 **Note: We need to make sure we have set the connection string of the IoT device in our Application Settings of the bot as we don't want to have global parameters or passwords in our bot's code**
