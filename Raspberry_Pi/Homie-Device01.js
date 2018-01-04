@@ -30,6 +30,7 @@ var connectCallback = function (err) {
         if(msg.data == "lightsOnOffice"){
 			isLedOn = +!isLedOn;
 			max7219.showMessage('O');
+			max7219.showMessage('O');
 			max7219.clear();
 			console.log('\x1b[33m%s\x1b[0m', msg.data + " - turning the lights on in the office...");
         } else if(msg.data == "lightsOffOffice"){
@@ -41,6 +42,7 @@ var connectCallback = function (err) {
 			console.log('\x1b[31m%s\x1b[0m', msg.data + " - turning the lights off in the office...");
         } else if(msg.data == "lightsOnLivingRoom"){
 			isLedOn = +!isLedOn;
+			max7219.showMessage('O');
 			max7219.showMessage('O');
 			max7219.clear();
 			console.log('\x1b[33m%s\x1b[0m', msg.data + " - turning the lights on in the living room...");
